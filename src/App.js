@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import Img from './Components/Img';
+import Header from './Components/header/Header';
+import Search from './Components/search/Search';
+import {List} from './Components/list/List';
+import {ListItem} from "./Components/list/List";
+import Footer from './Components/footer/Footer';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const tasks = [
+        {id: 1, title: 'Выпить кофе', status: false},
+        {id: 2, title: 'Сделать React приложение', status: false},
+        {id: 3, title: 'Позавтракать', status: false},
+    ];
+    return (
+        <div className="todo-app p-5">
+            <Img/>
+            <Header/>
+            <Search/>
+            {tasks.length === 0 ? (
+                <ListItem />
+            ) : (
+                <List tasks={tasks} />
+            )}
+            <Footer/>
+        </div>
+    );
 }
+
 
 export default App;

@@ -4,7 +4,7 @@
     margin-bottom: 1rem;
 }
 
-.header-title {
+.headerTitle {
     margin: 0;
     margin-right: 0.5rem;
     font-size: 2.5rem;
@@ -12,6 +12,6 @@
     line-height: 1.2;
 }
 
-.header-desc {
+.headerDesc {
     color: #6c757d;
 }
