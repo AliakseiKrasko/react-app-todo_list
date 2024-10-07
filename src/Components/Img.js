@@ -1,6 +1,6 @@
 import logo from './../logo.svg';
 
-const Img = () => {
+const Logo = () => {
     return (
         <div>
             <img src={logo} className="App-logo" alt="logo"/>
@@ -8,4 +8,4 @@ const Img = () => {
     )
 }
 
-export default Img;
+export default Logo;

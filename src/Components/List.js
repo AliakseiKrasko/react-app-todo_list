@@ -1,64 +1,23 @@
-import React from 'react';
-import classes from './List.module.css'; // Подключение стилей через модули
+import ListItem from './ListItem';
 
-class ListItemComponent extends React.Component {
-    state = {
-        important: false,
-        done: false,
-    }
+function List() {
+    const tasks = [
+        { id: 0, title: 'Выпить кофе' },
+        { id: 1, title: 'Сделать React приложение' },
+        { id: 2, title: 'Позавтракать' },
+    ];
 
-    toggleImportant = () => {
-        this.setState((prevState) => ({
-            important: !prevState.important
-        }));
-    }
+    const render = tasks.map((task) => {
+        return <ListItem key={task.id} task={task} />;
+    });
 
-    render() {
-        const { tasks } = this.props;
-        const { important } = this.state;
+    const emptyList = (
+        <li className="todo-item justify-content-center">
+            <span className="todo-item-text">Список дел пуст</span>
+        </li>
+    );
 
-        return (
-            <ul className={classes.todoList}>
-                {tasks && tasks.length > 0 ? (
-                    tasks.map((task) => {
-                        let classNames = `${classes.todoItem}`;
-                        if (important) {
-                            classNames += ` ${classes.todoItemImportant}`;
-                        }
-
-                        return (
-                            <li className={classNames} key={task.id}>
-                                <span className={classes.todoItemText}>{task.title}</span>
-                                <div className="btn-group">
-                                    <button
-                                        role="button"
-                                        className="btn btn-outline-dark btn-sm"
-                                        onClick={this.toggleImportant}
-                                    >
-                                        {important ? 'Не важно' : 'Важное'}
-                                    </button>
-                                    <button role="button" className="btn btn-outline-danger btn-sm">Удалить</button>
-                                </div>
-                            </li>
-                        );
-                    })
-                ) : (
-                    <EmptyToDoList />
-                )}
-            </ul>
-        )
-    }
+    return <ul className="todo-list">{tasks.length > 0 ? render : emptyList}</ul>;
 }
 
-const EmptyToDoList = () => {
-    return (
-        <div className={classes.todoItem}>
-            <span className={classes.todoItemText}>Список дел пуст</span>
-        </div>
-    )
-}
-
-export { ListItemComponent, EmptyToDoList };
-
-
-
+export default List;
