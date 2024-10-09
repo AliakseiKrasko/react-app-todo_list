@@ -2,38 +2,34 @@ import React from 'react';
 
 class ListItem extends React.Component {
 
-    state = {
-        important: false,
-        done: false
-    }
 
-    onImportantClick = () => {
-        this.setState((state) => {
-            return {
-                important: !state.important
+    // onImportantClick = () => {
+    //     this.setState((state) => {
+    //         return {
+    //             important: !state.important
+    //
+    //         }
+    //     });
+    // }
 
-            }
-        });
-    }
-
-    onDoneClick = () => {
-        this.setState((state) => {
-            return {
-                important: false,
-                done: !state.done
-            }
-        })
-    }
+    // onDoneClick = () => {
+    //     this.setState((state) => {
+    //         return {
+    //             important: false,
+    //             done: !state.done
+    //         }
+    //     })
+    // }
 
     render() {
 
         let classNames = 'todo-item';
 
-        if (this.state.important) {
+        if (this.props.task.important) {
             classNames += ' important';
         }
 
-        if (this.state.done) {
+        if (this.props.task.done) {
             classNames += ' done';
         }
 
@@ -41,7 +37,7 @@ class ListItem extends React.Component {
             <li className={classNames}>
                 <span onClick={this.onDoneClick} className="todo-item-text">{this.props.task.title}</span>
                 <div className="btn-group">
-                    <button onClick={this.onImportantClick} role="button" className="btn btn-outline-dark btn-sm">
+                    <button onClick={()=>{this.props.onToggleImportant(this.props.task.id)}} role="button" className="btn btn-outline-dark btn-sm">
                         Важное
                     </button>
                     <button role="button" className="btn btn-outline-danger btn-sm">

@@ -5,6 +5,11 @@
 /.pnp
 .pnp.js
 
+.idea/
+*.imlgit add .gitignore
+     git commit -m "Added .idea and *.iml to .gitignore"
+     git push
+
 # testing
 /coverage
 
