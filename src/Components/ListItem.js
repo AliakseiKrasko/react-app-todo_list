@@ -3,23 +3,7 @@ import React from 'react';
 class ListItem extends React.Component {
 
 
-    // onImportantClick = () => {
-    //     this.setState((state) => {
-    //         return {
-    //             important: !state.important
-    //
-    //         }
-    //     });
-    // }
 
-    // onDoneClick = () => {
-    //     this.setState((state) => {
-    //         return {
-    //             important: false,
-    //             done: !state.done
-    //         }
-    //     })
-    // }
 
     render() {
 

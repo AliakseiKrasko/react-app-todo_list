@@ -1,11 +1,6 @@
 import ListItem from './ListItem';
 
 function List(props) {
-    // const tasks = [
-    //     { id: 0, title: 'Выпить кофе' },
-    //     { id: 1, title: 'Сделать React приложение' },
-    //     { id: 2, title: 'Позавтракать' },
-    // ];
 
     const render = props.data.map((task) => {
         return <ListItem onToggleImportant={props.onToggleImportant} key={task.id} task={task} />;
