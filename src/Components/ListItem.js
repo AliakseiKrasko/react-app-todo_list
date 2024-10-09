@@ -3,8 +3,6 @@ import React from 'react';
 class ListItem extends React.Component {
 
 
-
-
     render() {
 
         let classNames = 'todo-item';
@@ -19,9 +17,13 @@ class ListItem extends React.Component {
 
         return (
             <li className={classNames}>
-                <span onClick={this.onDoneClick} className="todo-item-text">{this.props.task.title}</span>
+                <span onClick={() => {
+                    this.props.onToggleDone(this.props.task.id)
+                }} className="todo-item-text">{this.props.task.title}</span>
                 <div className="btn-group">
-                    <button onClick={()=>{this.props.onToggleImportant(this.props.task.id)}} role="button" className="btn btn-outline-dark btn-sm">
+                    <button onClick={() => {
+                        this.props.onToggleImportant(this.props.task.id)
+                    }} role="button" className="btn btn-outline-dark btn-sm">
                         Важное
                     </button>
                     <button role="button" className="btn btn-outline-danger btn-sm">
